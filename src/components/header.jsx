@@ -1,14 +1,16 @@
 import { useState } from "react";
+import Dropdown from "./Dropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { faX, faBars } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   const [click, setClick] = useState(false);
+  const handleClick = () => setClick(!click);
+
   return (
-    <header class="flex items-center bg-gray-900 py-6 px-3.5">
+    <header className="flex items-center bg-gray-900 py-6 px-3.5 relative ">
       <h1 className="text-4xl text-slate-100 font-bold">MHEN</h1>
-      <div className="menu-icon">
+      <div className="hover:cursor-pointer" onClick={handleClick}>
         <FontAwesomeIcon
           icon={click ? faX : faBars}
           size="2xl"
@@ -18,14 +20,30 @@ function Header() {
       <nav className="m-auto">
         <ul className="flex gap-7 text-slate-100 font-bold">
           <li>Home</li>
-          <li>
-            About <FontAwesomeIcon icon={faAngleDown} />
-          </li>
-          <li>
-            Projects <FontAwesomeIcon icon={faAngleDown} />
-          </li>
+          <Dropdown
+            menuItem={"About"}
+            subMenuItems={["MEHN", "Board", "Staff", "Network members"]}
+          />
+          <Dropdown
+            menuItem={"Projects"}
+            subMenuItems={[
+              "Current Projects",
+              "Recent Projects",
+              "Past Projects",
+            ]}
+          />
           <li>Partners</li>
-          <li>Publications</li>
+          <Dropdown
+            menuItem={"Publications"}
+            subMenuItems={[
+              "Budget Analysis",
+              "Reports",
+              "Newsletter",
+              "Press Statements",
+              "Policy Briefs",
+              "Photo Gallery",
+            ]}
+          />
           <li>Vacancies</li>
           <li>Contact us</li>
         </ul>
