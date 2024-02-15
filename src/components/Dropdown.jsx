@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { RiArrowDownSLine } from "react-icons/ri";
 
 function Dropdown({ menuItem, subMenuItems }) {
   const [dropdown, setDropdown] = useState(false);
@@ -8,18 +7,22 @@ function Dropdown({ menuItem, subMenuItems }) {
 
   return (
     <li
-      className="relative"
+      className="relative flex items-center font-bold"
       onMouseEnter={toggleDropdown}
       onMouseLeave={toggleDropdown}
     >
-      {menuItem} <FontAwesomeIcon icon={faAngleDown} />
+      <a href="#">{menuItem}</a>
+      <RiArrowDownSLine />
       {dropdown && (
-        <ul className="absolute bg-gray-900 w-48">
-          {subMenuItems.map((item, index) => (
-            <li key={index} className="px-4 py-4">
-              {item}
-            </li>
-          ))}
+        <ul className="absolute top-5 bg-gray-900 w-44 py-2 px-3">
+          {subMenuItems.map((subMenu, index) => {
+            const { title, path } = subMenu;
+            return (
+              <li key={index} className="py-4 font-semibold">
+                <a href={path}>{title}</a>
+              </li>
+            );
+          })}
         </ul>
       )}
     </li>
