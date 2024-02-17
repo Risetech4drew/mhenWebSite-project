@@ -14,7 +14,7 @@ function Dropdown({ menuItem, subMenuItems }) {
       <a href="#">{menuItem}</a>
       <RiArrowDownSLine />
       {dropdown && (
-        <ul className="absolute w-full grid gap-2 top-5 bg-white lg:bg-gray-900 lg:w-44 lg:py-2 lg:px-3">
+        <ul className="absolute px-5 w-48 grid gap-2 top-5 bg-white text-black lg:bg-gray-900 lg:w-44 lg:py-2 lg:px-3">
           {subMenuItems.map((subMenu, index) => {
             const { title, path } = subMenu;
             return (
