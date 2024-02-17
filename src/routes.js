@@ -1,4 +1,8 @@
 export const routes = {
+  home: {
+    title: "Home",
+    path: "#",
+  },
   about: {
     title: "About",
     path: "#",
@@ -39,6 +43,10 @@ export const routes = {
       },
     ],
   },
+  partners: {
+    title: "Partners",
+    path: "#",
+  },
   publications: {
     title: "Publications",
     path: "#",
@@ -64,5 +72,13 @@ export const routes = {
         path: "#",
       },
     ],
+  },
+  vacancies: {
+    title: "Vacancies",
+    path: "#",
+  },
+  contact: {
+    title: "Contact Us",
+    path: "#",
   },
 };

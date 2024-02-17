@@ -5,7 +5,7 @@ function DesktopNav() {
   return (
     <ul className="hidden lg:flex lg:items-center gap-5">
       <li className="font-semibold">
-        <a href="#">Home</a>
+        <a href={routes.home.path}>{routes.home.title}</a>
       </li>
       <Dropdown
         menuItem={routes.about.title}
@@ -16,17 +16,17 @@ function DesktopNav() {
         subMenuItems={routes.projects.subMenuItems}
       />
       <li className="font-semibold">
-        <a href="#">Partners</a>
+        <a href={routes.partners.path}>{routes.partners.title}</a>
       </li>
       <Dropdown
         menuItem={routes.publications.title}
         subMenuItems={routes.publications.subMenuItems}
       />
       <li className="font-semibold">
-        <a href="#">Vacancies</a>
+        <a href={routes.vacancies.path}>{routes.vacancies.title}</a>
       </li>
       <li className="font-semibold">
-        <a href="#">Contact Us</a>
+        <a href={routes.contact.path}>{routes.contact.title}</a>
       </li>
     </ul>
   );
