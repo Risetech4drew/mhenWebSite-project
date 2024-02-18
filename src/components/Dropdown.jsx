@@ -19,7 +19,9 @@ function Dropdown({ menuItem, subMenuItems }) {
             const { title, path } = subMenu;
             return (
               <li key={index} className="lg:py-4 font-semibold">
-                <a href={path}>{title}</a>
+                <a className="text-white" href={path}>
+                  {title}
+                </a>
               </li>
             );
           })}
