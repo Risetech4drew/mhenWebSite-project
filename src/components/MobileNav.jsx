@@ -3,22 +3,29 @@ import { Divide as Hamburger } from "hamburger-react";
 import { FaAnglesDown } from "react-icons/fa6";
 import { FaAnglesUp } from "react-icons/fa6";
 import { routes } from "../routes";
-import AboutSubMenu from "./AboutSubMenu";
-import ProjectsSubMenu from "./ProjectsSubMenu";
-import PublicationsSubMenu from "./PublicationsSubMenu ";
-
+import SubMenu from "./SubMenu";
 function MobileNav() {
   const [isOpen, setOpen] = useState(false);
   const [aboutSubMenuOpen, setAboutSubMenuOpen] = useState(false);
   const [projectsSubMenuOpen, setProjectsSubMenuOpen] = useState(false);
   const [publicationsSubMenuOpen, setPublicationsSubMenuOpen] = useState(false);
 
+  const closeAboutSubMenu = () => {
+    setAboutSubMenuOpen(false);
+  };
+  const closeProjectsSubMenu = () => {
+    setProjectsSubMenuOpen(false);
+  };
+  const closePublicationsSubMenu = () => {
+    setPublicationsSubMenuOpen(false);
+  };
+
   return (
     <div className="lg:hidden">
       <Hamburger toggled={isOpen} size={25} toggle={setOpen} />
       {isOpen && (
-        <div className="fixed left-0 right-0 top-[3.5rem] p-5 pt-0 bg-gray-900 h-full">
-          <ul className="grid place-items-center content-center gap-10">
+        <div className="fixed left-0 right-0 top-[3.5rem] h-full p-5 pt-0 bg-gray-900">
+          <ul className="grid place-items-center content-center mt-20 gap-10">
             <li>
               <a href={routes.home.path}>{routes.home.title}</a>
             </li>
@@ -28,9 +35,14 @@ function MobileNav() {
                 onClick={() => setAboutSubMenuOpen(!aboutSubMenuOpen)}
               >
                 {routes.about.title}{" "}
-                {aboutSubMenuOpen ? <FaAnglesUp /> : <FaAnglesDown />}
               </div>
-              {aboutSubMenuOpen && <AboutSubMenu />}
+              {aboutSubMenuOpen && (
+                <SubMenu
+                  subMenuItems={routes.about.subMenuItems}
+                  isOpen={aboutSubMenuOpen}
+                  onClose={closeAboutSubMenu}
+                />
+              )}
             </li>
             <li>
               <div
@@ -38,9 +50,14 @@ function MobileNav() {
                 onClick={() => setProjectsSubMenuOpen(!projectsSubMenuOpen)}
               >
                 {routes.projects.title}{" "}
-                {projectsSubMenuOpen ? <FaAnglesUp /> : <FaAnglesDown />}
               </div>
-              {projectsSubMenuOpen && <ProjectsSubMenu />}
+              {projectsSubMenuOpen && (
+                <SubMenu
+                  subMenuItems={routes.projects.subMenuItems}
+                  isOpen={projectsSubMenuOpen}
+                  onClose={closeProjectsSubMenu}
+                />
+              )}
             </li>
             <li>
               <a href={routes.partners.path}>{routes.partners.title}</a>
@@ -53,9 +70,14 @@ function MobileNav() {
                 }
               >
                 {routes.publications.title}{" "}
-                {publicationsSubMenuOpen ? <FaAnglesUp /> : <FaAnglesDown />}
               </div>
-              {publicationsSubMenuOpen && <PublicationsSubMenu />}
+              {publicationsSubMenuOpen && (
+                <SubMenu
+                  subMenuItems={routes.publications.subMenuItems}
+                  isOpen={publicationsSubMenuOpen}
+                  onClose={closePublicationsSubMenu}
+                />
+              )}
             </li>
             <li>
               <a href={routes.vacancies.path}>{routes.vacancies.title}</a>
