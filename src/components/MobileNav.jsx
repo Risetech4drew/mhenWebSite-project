@@ -34,10 +34,11 @@ function MobileNav() {
                 className="flex items-center gap-1 ml-2"
                 onClick={() => setAboutSubMenuOpen(!aboutSubMenuOpen)}
               >
-                {routes.about.title}{" "}
+                {routes.about.title}
               </div>
               {aboutSubMenuOpen && (
                 <SubMenu
+                  header={routes.about.title}
                   subMenuItems={routes.about.subMenuItems}
                   isOpen={aboutSubMenuOpen}
                   onClose={closeAboutSubMenu}
@@ -49,10 +50,11 @@ function MobileNav() {
                 className="flex items-center gap-1 ml-2"
                 onClick={() => setProjectsSubMenuOpen(!projectsSubMenuOpen)}
               >
-                {routes.projects.title}{" "}
+                {routes.projects.title}
               </div>
               {projectsSubMenuOpen && (
                 <SubMenu
+                  header={routes.projects.title}
                   subMenuItems={routes.projects.subMenuItems}
                   isOpen={projectsSubMenuOpen}
                   onClose={closeProjectsSubMenu}
@@ -69,10 +71,11 @@ function MobileNav() {
                   setPublicationsSubMenuOpen(!publicationsSubMenuOpen)
                 }
               >
-                {routes.publications.title}{" "}
+                {routes.publications.title}
               </div>
               {publicationsSubMenuOpen && (
                 <SubMenu
+                  header={routes.publications.title}
                   subMenuItems={routes.publications.subMenuItems}
                   isOpen={publicationsSubMenuOpen}
                   onClose={closePublicationsSubMenu}
