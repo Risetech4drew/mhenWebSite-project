@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { Divide as Hamburger } from "hamburger-react";
-import { FaAnglesRight } from "react-icons/fa6";
-import Dropdown from "./Dropdown";
+import { FaAnglesDown } from "react-icons/fa6";
+import { FaAnglesUp } from "react-icons/fa6";
 import { routes } from "../routes";
+import AboutSubMenu from "./AboutSubMenu";
+import ProjectsSubMenu from "./ProjectsSubMenu";
+import PublicationsSubMenu from "./PublicationsSubMenu ";
 
 function MobileNav() {
   const [isOpen, setOpen] = useState(false);
+  const [aboutSubMenuOpen, setAboutSubMenuOpen] = useState(false);
+  const [projectsSubMenuOpen, setProjectsSubMenuOpen] = useState(false);
+  const [publicationsSubMenuOpen, setPublicationsSubMenuOpen] = useState(false);
 
   return (
     <div className="lg:hidden">
@@ -17,31 +23,39 @@ function MobileNav() {
               <a href={routes.home.path}>{routes.home.title}</a>
             </li>
             <li>
-              <a
-                className="flex items-center gap-1 ml-2 "
-                href={routes.about.path}
+              <div
+                className="flex items-center gap-1 ml-2"
+                onClick={() => setAboutSubMenuOpen(!aboutSubMenuOpen)}
               >
-                {routes.about.title} <FaAnglesRight />
-              </a>
+                {routes.about.title}{" "}
+                {aboutSubMenuOpen ? <FaAnglesUp /> : <FaAnglesDown />}
+              </div>
+              {aboutSubMenuOpen && <AboutSubMenu />}
             </li>
             <li>
-              <a
-                className="flex items-center gap-1 ml-2 "
-                href={routes.projects.path}
+              <div
+                className="flex items-center gap-1 ml-2"
+                onClick={() => setProjectsSubMenuOpen(!projectsSubMenuOpen)}
               >
-                {routes.projects.title} <FaAnglesRight />
-              </a>
+                {routes.projects.title}{" "}
+                {projectsSubMenuOpen ? <FaAnglesUp /> : <FaAnglesDown />}
+              </div>
+              {projectsSubMenuOpen && <ProjectsSubMenu />}
             </li>
             <li>
               <a href={routes.partners.path}>{routes.partners.title}</a>
             </li>
             <li>
-              <a
-                className="flex items-center gap-1 ml-2 "
-                href={routes.publications.path}
+              <div
+                className="flex items-center gap-1 ml-2"
+                onClick={() =>
+                  setPublicationsSubMenuOpen(!publicationsSubMenuOpen)
+                }
               >
-                {routes.publications.title} <FaAnglesRight />
-              </a>
+                {routes.publications.title}{" "}
+                {publicationsSubMenuOpen ? <FaAnglesUp /> : <FaAnglesDown />}
+              </div>
+              {publicationsSubMenuOpen && <PublicationsSubMenu />}
             </li>
             <li>
               <a href={routes.vacancies.path}>{routes.vacancies.title}</a>
@@ -55,4 +69,5 @@ function MobileNav() {
     </div>
   );
 }
+
 export default MobileNav;
