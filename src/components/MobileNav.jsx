@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Divide as Hamburger } from "hamburger-react";
-import { FaAnglesDown } from "react-icons/fa6";
-import { FaAnglesUp } from "react-icons/fa6";
+import { FaAnglesRight } from "react-icons/fa6";
 import { routes } from "../routes";
 import SubMenu from "./SubMenu";
 function MobileNav() {
@@ -35,6 +34,7 @@ function MobileNav() {
                 onClick={() => setAboutSubMenuOpen(!aboutSubMenuOpen)}
               >
                 {routes.about.title}
+                <FaAnglesRight />
               </div>
               {aboutSubMenuOpen && (
                 <SubMenu
@@ -51,6 +51,7 @@ function MobileNav() {
                 onClick={() => setProjectsSubMenuOpen(!projectsSubMenuOpen)}
               >
                 {routes.projects.title}
+                <FaAnglesRight />
               </div>
               {projectsSubMenuOpen && (
                 <SubMenu
@@ -72,6 +73,7 @@ function MobileNav() {
                 }
               >
                 {routes.publications.title}
+                <FaAnglesRight />
               </div>
               {publicationsSubMenuOpen && (
                 <SubMenu
