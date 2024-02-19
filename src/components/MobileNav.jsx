@@ -23,7 +23,7 @@ function MobileNav() {
     <div className="lg:hidden">
       <Hamburger toggled={isOpen} size={25} toggle={setOpen} />
       {isOpen && (
-        <div className="fixed left-0 right-0 top-[3.5rem] h-full p-5 pt-0 bg-gray-900">
+        <div className="fixed left-0 right-0 top-[3.5rem] h-full p-5 pt-0 bg-gray-900 z-1">
           <ul className="grid place-items-center content-center mt-20 gap-10">
             <li>
               <a href={routes.home.path}>{routes.home.title}</a>
