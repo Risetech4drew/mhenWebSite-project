@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "./pages/home";
 import Layout from "./components/Layout";
 
 function App() {
@@ -15,7 +15,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /* <Header /> */
-}
